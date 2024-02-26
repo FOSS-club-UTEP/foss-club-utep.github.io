@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOSS CLUB Links</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
+
+        link {
+          color: inherit; /* Inherits the main font color, without this after clicking link will turn browser default post-click color */
+          text-decoration: none; /* Removes the line from the link */
         }
 
         body {
@@ -17,26 +17,19 @@
             display: grid;
             place-items: center;
             height: 100vh;
-            background-color: black; /* Pure black background */
-            align-items: start;
+            background-color: white; /* Pure White, perhaps change to black for dark mode style */
         }
 
-        .outer-container {
-            height: 100vh; /* Set the outer container height to full viewport height */
-            display: flex;
-            align-items: start; /* Align content to the top */
-        }
-
-        .inner-container {
-            flex: 1; /* Take up remaining space */
-            max-width: 960px;
-            box-sizing: border-box;
-            background-color: red;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .container {
             display: grid;
-            grid-template-rows: auto 1fr auto; /* Header, content, and footer */
-            align-items: start; /* Align content to the top */
+            grid-template-rows: 1fr; /* BREAKS when buttons are not there, rethink and fix. */
+            grid-template-columns: 9fr; /* Meant to be the last part of the ratio, 8:9 or 16:9 */
+            max-width: 960px; /* Prevents the container class from losing proportions, may cause issues on resolutions higher or lower than 1080p */
+            width: 100%;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            background-color: red; /* Optional container background color */
+            border: 1px solid #ccc; /* Optional border for the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional box shadow */
         }
 
         .title {
@@ -44,9 +37,11 @@
             grid-column: 1 / span 1;
             text-align: center;
             padding: 20px;
-            font-size: 50px;
-            font-weight: bold;
-            color: #ffffff;
+        }
+
+        .title img {
+          width: 200px; /* Attempt to resize the foss image */
+          height: auto; /* Should try to keep aspect ratio, depending on the width */
         }
 
         .buttons {
@@ -79,36 +74,36 @@
             transform: translate(-50%, -50%);
         }
 
+        /* Makes the buttons black upon hover with a mouse */
         .button:hover {
             background-color: black; /* Hover state background color */
         }
 
-        .content {
-            grid-row: 3 / span 1;
+        .link-section {
+            grid-row: 3 / span 1; /* Adjust the row to the desired position */
             grid-column: 1 / span 1;
-            text-align: center;
+            background-color: #f0f0f0;
             padding: 20px;
-            color: #ffffff;
-            font-size: 20px;
+            text-align: center;
         }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">FOSS Club</div>
-            <div class="content">
-            <h2>FOSS Club Links</h2>
-            <p>This is a paragraph of text about the FOSS Club. You can add more content here.</p>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-            </div>
         
-            </div>
+        <div class="title">
+            <img src="foss_club_new.svg" alt="FOSS Club Logo">
         </div>
+        
+        <div class="text-section">
+            <h2>Welcome to FOSS Club Links</h2>
+            <p>Discord Link</p>
+            <p>Social Media Link</p>
+            <p>Other link</p>
+            <p>Another ink</p>
+        </div>
+
     </div>
 </body>
 </html>
