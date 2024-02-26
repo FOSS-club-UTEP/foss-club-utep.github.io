@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOSS CLUB Links</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: black; /* Pure black background */
+            align-items: start;
+        }
+
+        .outer-container {
+            height: 100vh; /* Set the outer container height to full viewport height */
+            display: flex;
+            align-items: start; /* Align content to the top */
+        }
+
+        .inner-container {
+            flex: 1; /* Take up remaining space */
+            max-width: 960px;
+            box-sizing: border-box;
+            background-color: red;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-rows: auto 1fr auto; /* Header, content, and footer */
+            align-items: start; /* Align content to the top */
+        }
+
+        .title {
+            grid-row: 1 / span 1;
+            grid-column: 1 / span 1;
+            text-align: center;
+            padding: 20px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .buttons {
+            grid-row: 2 / span 1;
+            grid-column: 1 / span 1;
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .button {
+            width: 100%;
+            padding-top: 100%; /* Maintain a square aspect ratio */
+            position: relative;
+            background-color: #ffffff; /* Button background color */
+            color: red; /* Button text color */
+            text-align: center;
+            cursor: pointer;
+            font-size: 50px;
+        }
+
+        .button-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .button:hover {
+            background-color: black; /* Hover state background color */
+        }
+
+        .content {
+            grid-row: 3 / span 1;
+            grid-column: 1 / span 1;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">FOSS Club</div>
+            <div class="content">
+            <h2>FOSS Club Links</h2>
+            <p>This is a paragraph of text about the FOSS Club. You can add more content here.</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            </div>
+        
+            </div>
+        </div>
+    </div>
+</body>
+</html>
