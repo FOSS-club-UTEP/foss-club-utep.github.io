@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOSS CLUB Main Page</title>
+    <title>FOSS CLUB Links</title>
     <style>
 
-        a {
+        link {
           color: inherit; /* Inherits the main font color, without this after clicking link will turn browser default post-click color */
           text-decoration: none; /* Removes the line from the link */
         }
@@ -78,6 +78,15 @@
         .button:hover {
             background-color: black; /* Hover state background color */
         }
+
+        .link-section {
+            grid-row: 3 / span 1; /* Adjust the row to the desired position */
+            grid-column: 1 / span 1;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -87,22 +96,14 @@
             <img src="foss_club_new.svg" alt="FOSS Club Logo">
         </div>
         
-        <div class="buttons">
-            <div class="button">
-                <a href="club_links.html">
-                    <div class="button-inner">Club Links</div>
-                </a>
-            </div>
-            <div class="button">
-                <div class="button-inner">Club Member Projects and Repos</div>
-            </div>
-            <div class="button">
-                <div class="button-inner">Past Events and Pictures</div>
-            </div>
-            <div class="button">
-                <div class="button-inner">Upcoming Events and Info</div>
-            </div>
+        <div class="text-section">
+            <h2>Welcome to FOSS Club Links</h2>
+            <p>Discord Link</p>
+            <p>Social Media Link</p>
+            <p>Other link</p>
+            <p>Another ink</p>
         </div>
+
     </div>
 </body>
 </html>
