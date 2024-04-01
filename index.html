@@ -5,104 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOSS CLUB Main Page</title>
     <style>
-
-        a {
-          color: inherit; /* Inherits the main font color, without this after clicking link will turn browser default post-click color */
-          text-decoration: none; /* Removes the line from the link */
-        }
-
         body {
             margin: 0;
             padding: 0;
-            display: grid;
-            place-items: center;
-            height: 100vh;
-            background-color: white; /* Pure White, perhaps change to black for dark mode style */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center; /* Center the main container horizontally */
+            align-items: center; /* Center the main container vertically */
+            background-color: red;
+
         }
 
-        .container {
-            display: grid;
-            grid-template-rows: 1fr; /* BREAKS when buttons are not there, rethink and fix. */
-            grid-template-columns: 9fr; /* Meant to be the last part of the ratio, 8:9 or 16:9 */
-            max-width: 960px; /* Prevents the container class from losing proportions, may cause issues on resolutions higher or lower than 1080p */
+        .main_container, .header, .header-logo, .header-buttons, .header-button .body, .footer {
+            box-sizing: border-box;
+        }
+
+        .main_container {
+            display: flex;
+            flex-direction: column;
+
+            height: 100svh; /* Set the height of the body to the full viewport height */
+            width: 100svw; /* Set width to 100% of the viewport height */
+            max-width: 960px; /* Set maximum width to 960px */
+        }
+
+        .header {
+            flex: 20%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 100%;
+            width: 20%;
+            background-color: solid red;
+            border: 1px solid red;
+        }
+
+        .header-logo img {
             width: 100%;
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
-            background-color: red; /* Optional container background color */
-            border: 1px solid #ccc; /* Optional border for the container */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional box shadow */
+            height: 100%;
+            vertical-align: middle;
+
         }
 
-        .title {
-            grid-row: 1 / span 1;
-            grid-column: 1 / span 1;
-            text-align: center;
-            padding: 20px;
-        }
+        .header-buttons {
+            height: 100%;
+            width: 80%;
+            background-color: white;
 
-        .title img {
-          width: 200px; /* Attempt to resize the foss image */
-          height: auto; /* Should try to keep aspect ratio, depending on the width */
-        }
-
-        .buttons {
-            grid-row: 2 / span 1;
-            grid-column: 1 / span 1;
             display: grid;
-            grid-template-rows: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid red;
+
+        }
+
+        .header-button {
+            height: 80%;
+            background-color: red;
+
+            display: flex;
+            text-align: center;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-        }
 
-        .button {
-            width: 100%;
-            padding-top: 100%; /* Maintain a square aspect ratio */
-            position: relative;
-            background-color: #ffffff; /* Button background color */
-            color: red; /* Button text color */
-            text-align: center;
+            color: white; /* Text Color*/
+
+            font-size: 1.5em;
+            
+            margin: 5px;
+            padding: 0px;
+            border: 1px solid white;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 50px;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
         }
 
-        .button-inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .header-button:hover {
+            background-color: white; /* Hover state background color */
+            color: red;
+
+            border: 1px solid red;
         }
 
-        /* Makes the buttons black upon hover with a mouse */
-        .button:hover {
-            background-color: black; /* Hover state background color */
+        .body {
+            flex:75%;
+            background-color: white;
+
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 15px;
+            padding: 15px;
+
+            border: 1px solid red;
         }
+
+        .body-button {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 3em;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+
+            border: 1px solid white;
+        }
+
+        .body-button:hover {
+            background-color: white;
+            color: red;
+
+            border: 1px solid red;
+        }
+
+        .footer {
+            flex: 5%;
+            background-color: white;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid red;
+        }
+
+        .footer-button {
+            grid-column: 2;
+
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+
+            border: 1px solid white;
+        }
+
+        .footer-button:hover {
+            background-color: white;
+            color: red;
+
+            border: 1px solid red;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        
-        <div class="title">
-            <img src="foss_club_new.svg" alt="FOSS Club Logo">
-        </div>
-        
-        <div class="buttons">
-            <div class="button">
-                <a href="club_links.html">
-                    <div class="button-inner">Club Links</div>
-                </a>
+    <div class="main_container">
+
+        <div class="header">
+            <div class="header-logo">
+                <img src="foss_club_new.svg" alt="FOSS Club Logo">
             </div>
-            <div class="button">
-                <div class="button-inner">Club Member Projects and Repos</div>
-            </div>
-            <div class="button">
-                <div class="button-inner">Past Events and Pictures</div>
-            </div>
-            <div class="button">
-                <div class="button-inner">Upcoming Events and Info</div>
+
+            <div class="header-buttons">
+                <a class="header-button" href="https://discord.gg/p8km7u48k4">Discord</a>
+                <a class="header-button" href="https://minetracker.utep.edu/organization/foss">Mine Tracker</a>
+                <a class="header-button" href="https://www.instagram.com/foss.utep/">Instagram</a>
+                <a class="header-button" href="https://linkedin.com/company/utep-foss-club">LinkedIn</a>
+                <a class="header-button" href="https://teams.microsoft.com/l/team/19%3AS5dooYGM0VwdoCfsSeJU5JYbwoOLAqdtparHVMij7d41%40thread.tacv2/conversations?groupId=bec901c0-5e2e-4aec-84a9-5109d7c1c37a&tenantId=857c21d2-1a16-43a4-90cf-d57f3fab9d2f">MS Teams</a>
+                <a class="header-button">Contact (WIP, broken link)</a>
             </div>
         </div>
+
+        <div class="body">
+            <button class="body-button">Future Events</button>
+            <button class="body-button">Past Events</button>
+            <button class="body-button">Club Member Projects and Repos</button>
+        </div>
+
+        <div class="footer">
+            <button class="footer-button">About FOSS Club at UTEP</button>
+        </div>
+
     </div>
 </body>
 </html>
