@@ -5,185 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOSS CLUB Main Page</title>
     <style>
-
-        a {
-          color: red; 
-          text-decoration: none; /* Removes the line from the link */
-        }
-
         body {
             margin: 0;
             padding: 0;
-            display: grid;
-            place-items: center;
-            height: 100vh;
-            background-color: red; /* Red background for now to match club colors.*/
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center; /* Center the main container horizontally */
+            align-items: center; /* Center the main container vertically */
+            background-color: red;
+
         }
 
-        * {
+        .main_container, .header, .header-logo, .header-buttons, .header-button .body, .footer {
             box-sizing: border-box;
         }
 
-        .ratio_container {
-            /* 10 by 10 grid */
-            display: grid;
-            grid-template-rows: repeat(10, 108px);
-            grid-template-columns: repeat(10, 92px);
-
-            max-height: 1080px;
-            width: 940px;
-            margin: 0 auto;
-
-            border: 1px solid black;
-            padding: 10px;
-        
-            background-color: white; /* Optional container background color */
-        }
-
-        .header_container {
-            grid-row: span 2;
-            grid-column: 1 / span 10;
-
-            display: grid;
-
-            grid-template-columns: 25% 75%;
-
-            border: 1px solid red;
-        }
-
-        .logo_container {
-            grid-row: 1 / span 2;
-            grid-column: 1 / span 1;
-
+        .main_container {
             display: flex;
+            flex-direction: column;
+
+            height: 100vh; /* Set the height of the body to the full viewport height */
+            width: 100vw; /* Set width to 100% of the viewport height */
+            max-width: 960px; /* Set maximum width to 960px */
+        }
+
+        .header {
+            flex: 20%;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+        }
 
+        .header-logo {
+            height: 100%;
+            width: 20%;
+            background-color: solid red;
             border: 1px solid red;
         }
 
-        .logo_container img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
 
-            border: 1px solid red;
         }
 
-        .social_links_container {
-            grid-row: 1 / span 2;
-            grid-column: 2 / span 1;
+        .header-buttons {
+            height: 100%;
+            width: 80%;
+            background-color: white;
 
             display: grid;
             grid-template-rows: repeat(3, 1fr);
             grid-template-columns: repeat(2, 1fr);
-
-            border: 1px solid red;
-        }
-
-         .header-button {
-            color: red; /* Text color */
-            background-color: white; 
-
-            border: 1px solid red; 
-
-        }
-
-        /* BODY CONTAINER SECTION */
-        .body_container {
-            grid-row: span 7;
-            grid-column: 1 / span 10;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
-            font-size: 50px;
-
-            border: 1px solid red;
-        }
-
-        /* FOOTER CONTAINER SECTION*/
-        .footer_container {
-            grid-row: span 1;
-            grid-column: 1 / span 10;
-
-            display: flex;
             align-items: center;
             justify-content: center;
 
             border: 1px solid red;
+
         }
 
-        /* BASE BUTTON CLASS */
-        .button {
-            font-size: 25px;
+        .header-button {
+            height: 80%;
+            background-color: red;
+
             display: flex;
-            align-items: center;
+            text-align: center;
             justify-content: center;
+            align-items: center;
+
+            color: white; /* Text Color*/
+
+            font-size: 1.5em;
+            
             margin: 5px;
-            border-radius: 5px;
+            padding: 0px;
+            border: 1px solid white;
+            border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
             text-decoration: none;
         }
 
-        .button:hover {
-            background-color: red; /* Hover state background color */
-            color: white;
-        }
-        
+        .header-button:hover {
+            background-color: white; /* Hover state background color */
+            color: red;
 
+            border: 1px solid red;
+        }
+
+        .body {
+            flex:75%;
+            background-color: white;
+
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 15px;
+            padding: 15px;
+
+            border: 1px solid red;
+        }
+
+        .body-button {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 3em;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+
+            border: 1px solid white;
+        }
+
+        .body-button:hover {
+            background-color: white;
+            color: red;
+
+            border: 1px solid red;
+        }
+
+        .footer {
+            flex: 5%;
+            background-color: white;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid red;
+        }
+
+        .footer-button {
+            grid-column: 2;
+
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+
+            border: 1px solid white;
+        }
+
+        .footer-button:hover {
+            background-color: white;
+            color: red;
+
+            border: 1px solid red;
+        }
 
     </style>
 </head>
-
 <body>
-    <div class="ratio_container">
-        
-        <div class="header_container">
-            
-            <!-- Logo which takes up a 2x2~ ratio, 96px x 108x -->
-            <div class ="logo_container">
+    <div class="main_container">
+
+        <div class="header">
+            <div class="header-logo">
                 <img src="foss_club_new.svg" alt="FOSS Club Logo">
             </div>
-            
-            <!-- Social / outside links -->
-            <div class="social_links_container">
-                <a class="button header-button" href="https://discord.gg/p8km7u48k4">
-                    FOSS Club Discord
-                </a>
-                <a class="button header-button" href="https://minetracker.utep.edu/organization/foss">
-                    MineTracker
-                </a>
-                <a class="button header-button" href="https://www.instagram.com/foss.utep/">
-                    Instagram
-                </a>
-                <a class="button header-button" href="https://linkedin.com/company/utep-foss-club">
-                    LinkedIn
-                </a>
-                <a class="button header-button" href="https://teams.microsoft.com/l/team/19%3AS5dooYGM0VwdoCfsSeJU5JYbwoOLAqdtparHVMij7d41%40thread.tacv2/conversations?groupId=bec901c0-5e2e-4aec-84a9-5109d7c1c37a&tenantId=857c21d2-1a16-43a4-90cf-d57f3fab9d2f">
-                    FOSS Club MS Teams
-                </a>
-                <a class="button header-button">
-                    Contact (WIP, broken link)
-                </a>
+
+            <div class="header-buttons">
+                <a class="header-button" href="https://discord.gg/p8km7u48k4">Discord</a>
+                <a class="header-button" href="https://minetracker.utep.edu/organization/foss">Mine Tracker</a>
+                <a class="header-button" href="https://www.instagram.com/foss.utep/">Instagram</a>
+                <a class="header-button" href="https://linkedin.com/company/utep-foss-club">LinkedIn</a>
+                <a class="header-button" href="https://teams.microsoft.com/l/team/19%3AS5dooYGM0VwdoCfsSeJU5JYbwoOLAqdtparHVMij7d41%40thread.tacv2/conversations?groupId=bec901c0-5e2e-4aec-84a9-5109d7c1c37a&tenantId=857c21d2-1a16-43a4-90cf-d57f3fab9d2f">MS Teams</a>
+                <a class="header-button">Contact (WIP, broken link)</a>
             </div>
-
-        </div>
-        
-        <div class="body_container">
-            <div style="font-size: 50px;">WORK IN PROGRESS</div>
-            <br>
-            <div style="font-size: 30px;">CLUB SOCIAL MEDIA LINKS UP TOP SHOULD WORK</div>
         </div>
 
-        <div class="footer_container">
-            2024 FOSS Club at UTEP
+        <div class="body">
+            <button class="body-button">Future Events</button>
+            <button class="body-button">Past Events</button>
+            <button class="body-button">Club Member Projects and Repos</button>
+        </div>
+
+        <div class="footer">
+            <button class="footer-button">About FOSS Club at UTEP</button>
         </div>
 
     </div>
 </body>
-
 </html>
