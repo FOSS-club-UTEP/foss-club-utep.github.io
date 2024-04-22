@@ -4,198 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOSS CLUB Main Page</title>
+    
     <style>
-        body {
+        body
+        {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center; /* Center the main container horizontally */
-            align-items: center; /* Center the main container vertically */
-            background-color: red;
+            font-family: '8514 Fix', 'Bank Gothic', 'Arial', sans-serif;
 
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .main_container, .header, .header-logo, .header-buttons, .header-button .body, .footer {
+        @font-face
+        {
+            font-family: 'Bank Gothic';
+            src: url('bankgothic.woff2') format('woff2'),
+                 url('bankgothic.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face
+        {
+            font-family: '8514 Fix';
+            src: url('8514fix.woff2') format('woff2'),
+                 url('8514fix.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        .main_grid, .header, .header_logo, .header_logo img, .header_title, .big_text, .small_text, .navigation_bar, .navigation_bar_button, .navigation_bar_button:hover, .body, .body_text_section, .footer
+        {
             box-sizing: border-box;
         }
 
-        .main_container {
+        .main_grid
+        {
+            display: grid;
+            grid-template-rows: 20svh 5svh 55svh 20svh;
+            grid-template-columns: 1fr;
+
+            height: 100vh;
+            width: 100vh;
+
+            max-width: 960px;
+
+            margin: 0 auto;
+        }
+
+        .header
+        {
+            height: 100%;
+
+            display: grid;
+            grid-template-columns: 20% 80%;
+            grid-template-rows: 100%;
+
+            background-color: #282828;
+        }
+
+        .header_logo
+        {
+            height: 100%;
+            
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background-color: #282828;
+        }
+
+        .header_logo img
+        {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .header_title
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+
+            padding: 10px;
+
+            color: #FFFFFF;
+        }
+
+        .header_title .big_text
+        {
+            font-size: 5em;
+            line-height: 1.2;
+        }
+
+        .header_title .small_text
+        {
+            font-size: 1.5em;
+            line-height: 1.2;
+        }
+
+        .navigation_bar
+        {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            justify-content: center;
+            align-items: center;
+
+            color: #FFFFFF;
+
+            background-color: red;
+        }
+
+        .navigation_bar_button
+        {
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            background-color: transparent;
+            color: #FFFFFF;
+
+            margin: 0px;
+            text-decoration: none;
+
+            border: none;
+        }
+
+        .navigation_bar_button:hover
+        {
+            background-color: transparent;
+            border: 1px solid #FFFFFF;
+        }
+
+        .body
+        {
+            height: 100%;
+            width: 100%;
+
             display: flex;
             flex-direction: column;
 
-            height: 100svh; /* Set the height of the body to the full viewport height */
-            width: 100svw; /* Set width to 100% of the viewport height */
-            max-width: 960px; /* Set maximum width to 960px */
+            overflow-y: auto;
+
+            background-color: #fff9ec;
         }
 
-        .header {
-            flex: 20%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-logo {
+        .body_text_section
+        {
             height: 100%;
-            width: 20%;
-            background-color: solid red;
-            border: 1px solid red;
-        }
-
-        .header-logo img {
-            width: 100%;
-            height: 100%;
-            vertical-align: middle;
-
-        }
-
-        .header-buttons {
-            height: 100%;
-            width: 80%;
-            background-color: white;
-
-            display: grid;
-            grid-template-rows: repeat(3, 1fr);
-            grid-template-columns: repeat(2, 1fr);
-            align-items: center;
-            justify-content: center;
-
-            gap: 0px;
-            padding: 0px;
-
-            border: 1px solid red;
-
-        }
-
-        .header-button {
-            height: 80%;
-            background-color: red;
 
             display: flex;
-            text-align: center;
             justify-content: center;
-            align-items: center;
-
-            color: white; /* Text Color*/
-
-            font-size: 1.5em;
+            align-items: center; 
             
-            margin: 5px;
-            padding: 0px;
-            border: 1px solid white;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            text-decoration: none;
+            margin-bottom: 10px;
+            color: #000000;
         }
 
-        .header-button:hover {
-            background-color: white; /* Hover state background color */
-            color: red;
-
-            border: 1px solid red;
+        .footer
+        {
+            background-color: #282828;
         }
 
-        .body {
-            flex:75%;
-            background-color: white;
-
-            display: grid;
-            grid-template-rows: repeat(3, 1fr);
-            gap: 10px;
-            padding: 15px;
-
-            border: 1px solid red;
-        }
-
-        .body-button {
-            background-color: red;
-            color: white;
-            text-align: center;
-            padding: 0px;
-            border-radius: 10px;
-            font-size: 2.5em;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            text-decoration: none;
-
-            border: 1px solid white;
-        }
-
-        .body-button:hover {
-            background-color: white;
-            color: red;
-
-            border: 1px solid red;
-        }
-
-        .footer {
-            flex: 5%;
-            background-color: white;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-
-            align-items: center;
-            justify-content: center;
-
-            border: 1px solid red;
-        }
-
-        .footer-button {
-            grid-column: 2;
-
-            background-color: red;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            text-decoration: none;
-
-            border: 1px solid white;
-        }
-
-        .footer-button:hover {
-            background-color: white;
-            color: red;
-
-            border: 1px solid red;
-        }
 
     </style>
+
 </head>
 <body>
-    <div class="main_container">
-
+    <div class="main_grid">
         <div class="header">
-            <div class="header-logo">
-                <img src="foss_club_new.svg" alt="FOSS Club Logo">
+            <div class="header_logo">
+                <img src="foss_red_transparent.png" alt="FOSS Club Logo">
             </div>
-
-            <div class="header-buttons">
-                <a class="header-button" href="https://discord.gg/p8km7u48k4">Discord</a>
-                <a class="header-button" href="https://minetracker.utep.edu/organization/foss">Mine Tracker</a>
-                <a class="header-button" href="https://www.instagram.com/foss.utep/">Instagram</a>
-                <a class="header-button" href="https://linkedin.com/company/utep-foss-club">LinkedIn</a>
-                <a class="header-button" href="https://teams.microsoft.com/l/team/19%3AS5dooYGM0VwdoCfsSeJU5JYbwoOLAqdtparHVMij7d41%40thread.tacv2/conversations?groupId=bec901c0-5e2e-4aec-84a9-5109d7c1c37a&tenantId=857c21d2-1a16-43a4-90cf-d57f3fab9d2f">MS Teams</a>
-                <a class="header-button">Contact (WIP, broken link)</a>
+            <div class="header_title">
+                <div class="big_text">FOSS Club</div>
+                <div class="small_text">at The University of Texas at El Paso</div>
             </div>
         </div>
 
+        <div class="navigation_bar">
+            <a class="navigation_bar_button" href="#">About</a>
+            <a class="navigation_bar_button" href="#">Events</a>
+            <a class="navigation_bar_button" href="#">Contact</a>
+            <a class="navigation_bar_button" href="#">Portfolio</a>
+            <a class="navigation_bar_button" href="#">GitHub</a>
+        </div>
+        
         <div class="body">
-            <button class="body-button">Future Events</button>
-            <button class="body-button">Past Events</button>
-            <button class="body-button">Club Member Projects and Repos</button>
-        </div>
+            <div class="body_text_section">
+                FREE AND OPEN SOURCE SOFTWARE CLUB
+            </div>
+            <div class="body_text_section">
+                Events
+            </div>
 
-        <div class="footer">
-            <button class="footer-button">About FOSS Club at UTEP</button>
         </div>
-
+        
+        <div class="footer"></div>
     </div>
 </body>
 </html>
